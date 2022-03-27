@@ -1,0 +1,20 @@
+@inherits LayoutComponentBase
+
+<PageTitle>BlazorDashboard</PageTitle>
+
+<div class="page bg-gray-100">
+    <div class="top-navbar">
+        <NavMenu />
+    </div>
+    <div class="mt-2 w-full">
+        <div class="flex">
+            <div class="sidebar w-1/5 p-2">
+                <Sidebar />
+            </div>
+
+            <div class="main w-4/5 p-2">
+                @Body
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+@page "/register"
+@layout AuthoriseLayout
+
+<PageTitle>Register</PageTitle>
+
+<div class="sm:h-screen md:h-screen lg:h-screen xl:h-screen h-screen">
+    <div class="flex">
+        <div class="sm:w-4/5 md:w-2/5 lg:w-2/5 xl:w-1/5 m-auto mt-52">
+            <div class="logo w-full p-2">
+                <div class="justify-center">
+                    <svg width="45" height="45" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="m-auto">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M4.70711 0.292893C5.09763 0.683417 5.09763 1.31658 4.70711 1.70711L1.70711 4.70711C1.31658 5.09763 0.683417 5.09763 0.292893 4.70711C-0.0976311 4.31658 -0.0976311 3.68342 0.292893 3.29289L3.29289 0.292893C3.68342 -0.0976311 4.31658 -0.0976311 4.70711 0.292893ZM9.70711 0.292893C10.0976 0.683417 10.0976 1.31658 9.70711 1.70711L1.70711 9.70711C1.31658 10.0976 0.683417 10.0976 0.292893 9.70711C-0.0976311 9.31658 -0.0976311 8.68342 0.292893 8.29289L8.29289 0.292893C8.68342 -0.0976311 9.31658 -0.0976311 9.70711 0.292893ZM14.7071 0.292893C15.0976 0.683417 15.0976 1.31658 14.7071 1.70711L1.70711 14.7071C1.31658 15.0976 0.683417 15.0976 0.292893 14.7071C-0.0976311 14.3166 -0.0976311 13.6834 0.292893 13.2929L13.2929 0.292893C13.6834 -0.0976311 14.3166 -0.0976311 14.7071 0.292893ZM19.7071 0.292893C20.0976 0.683417 20.0976 1.31658 19.7071 1.70711L1.70711 19.7071C1.31658 20.0976 0.683417 20.0976 0.292893 19.7071C-0.0976311 19.3166 -0.0976311 18.6834 0.292893 18.2929L18.2929 0.292893C18.6834 -0.0976311 19.3166 -0.0976311 19.7071 0.292893ZM19.7071 5.29289C20.0976 5.68342 20.0976 6.31658 19.7071 6.70711L6.70711 19.7071C6.31658 20.0976 5.68342 20.0976 5.29289 19.7071C4.90237 19.3166 4.90237 18.6834 5.29289 18.2929L18.2929 5.29289C18.6834 4.90237 19.3166 4.90237 19.7071 5.29289ZM19.7071 10.2929C20.0976 10.6834 20.0976 11.3166 19.7071 11.7071L11.7071 19.7071C11.3166 20.0976 10.6834 20.0976 10.2929 19.7071C9.90237 19.3166 9.90237 18.6834 10.2929 18.2929L18.2929 10.2929C18.6834 9.90237 19.3166 9.90237 19.7071 10.2929ZM19.7071 15.2929C20.0976 15.6834 20.0976 16.3166 19.7071 16.7071L16.7071 19.7071C16.3166 20.0976 15.6834 20.0976 15.2929 19.7071C14.9024 19.3166 14.9024 18.6834 15.2929 18.2929L18.2929 15.2929C18.6834 14.9024 19.3166 14.9024 19.7071 15.2929Z"
+                            fill="black" fill-opacity="0.85" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md flex">
+                <form class="p-4 w-full">
+                    <div class="form-title font-bold text-xl mb-2">
+                        Register
+                    </div>
+                    <div class="mb-2">
+                        <label for="email" class="block mb-2 text-sm font-semibold text-gray-900">Language
+                            <span class="text-red-500">*</span>
+                        </label>
+                        <select name="language" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
+                               focus:border-blue-500 block w-full p-2.5 outline-none">
+                            <option value="">
+                                Please select
+                            </option>
+                            <option value="EN">
+                                English
+                            </option>
+                        </select>
+                    </div>
+                    <div class="mb-2">
+                        <label for="username" class="block mb-2 text-sm font-semibold text-gray-900">Username
+                            <span class="text-red-500">*</span>
+                        </label>
+                        <input type="text" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
+                               focus:border-blue-500 block w-full p-2.5 outline-none">
+                    </div>
+                    <div class="mb-2">
+                        <label for="email" class="block mb-2 text-sm font-semibold text-gray-900">Email
+                            <span class="text-red-500">*</span>
+                        </label>
+                        <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
+                               focus:border-blue-500 block w-full p-2.5 outline-none">
+                    </div>
+                    <div class="mb-2">
+                        <label for="password" class="block mb-2 text-sm font-semibold text-gray-900">Password
+                            <span class="text-red-500">*</span></label>
+                        <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+                                        focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none">
+                    </div>
+                    <div class="">
+                        <button type="submit"
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none 
+                            focus:ring-blue-300 rounded-lg text-sm w-full sm:w-auto px-3 py-2.5 text-center float-right font-thin">
+                            Create Account
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="text-center py-5">
+                <span class="text-gray-500">
+                    Already have an account?
+                </span>
+                <a class="text-blue-400">Login</a>
+            </div>
+        </div>
+    </div>
+</div>

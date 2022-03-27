@@ -1,0 +1,147 @@
+﻿
+<nav class="bg-gray-800">
+    <div class="px-2 sm:px-6 lg:px-8">
+        <div class="relative flex items-center justify-between h-16">
+            <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                <!-- Mobile menu button-->
+                <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                        aria-controls="mobile-menu" aria-expanded="false" @onclick="ToggleNavMenu">
+                    <span class="sr-only">Open main menu</span>
+                    <!--
+                      Icon when menu is closed.
+
+                      Heroicon name: outline/menu
+
+                      Menu open: "hidden", Menu closed: "block"
+                    -->
+                    <svg class="@NavMenuCssClass h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <!--
+                      Icon when menu is open.
+
+                      Heroicon name: outline/x
+
+                      Menu open: "block", Menu closed: "hidden"
+                    -->
+                    <svg class="@NavMenuCloseCssClass h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                <div class="flex-shrink-0 flex items-center">
+                    <div class="block lg:hidden h-8 w-auto">
+                        <div class="inline-flex">
+                            <svg width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.70711 0.292893C5.09763 0.683417 5.09763 1.31658 4.70711 1.70711L1.70711 4.70711C1.31658 5.09763 0.683417 5.09763 0.292893 4.70711C-0.0976311 4.31658 -0.0976311 3.68342 0.292893 3.29289L3.29289 0.292893C3.68342 -0.0976311 4.31658 -0.0976311 4.70711 0.292893ZM9.70711 0.292893C10.0976 0.683417 10.0976 1.31658 9.70711 1.70711L1.70711 9.70711C1.31658 10.0976 0.683417 10.0976 0.292893 9.70711C-0.0976311 9.31658 -0.0976311 8.68342 0.292893 8.29289L8.29289 0.292893C8.68342 -0.0976311 9.31658 -0.0976311 9.70711 0.292893ZM14.7071 0.292893C15.0976 0.683417 15.0976 1.31658 14.7071 1.70711L1.70711 14.7071C1.31658 15.0976 0.683417 15.0976 0.292893 14.7071C-0.0976311 14.3166 -0.0976311 13.6834 0.292893 13.2929L13.2929 0.292893C13.6834 -0.0976311 14.3166 -0.0976311 14.7071 0.292893ZM19.7071 0.292893C20.0976 0.683417 20.0976 1.31658 19.7071 1.70711L1.70711 19.7071C1.31658 20.0976 0.683417 20.0976 0.292893 19.7071C-0.0976311 19.3166 -0.0976311 18.6834 0.292893 18.2929L18.2929 0.292893C18.6834 -0.0976311 19.3166 -0.0976311 19.7071 0.292893ZM19.7071 5.29289C20.0976 5.68342 20.0976 6.31658 19.7071 6.70711L6.70711 19.7071C6.31658 20.0976 5.68342 20.0976 5.29289 19.7071C4.90237 19.3166 4.90237 18.6834 5.29289 18.2929L18.2929 5.29289C18.6834 4.90237 19.3166 4.90237 19.7071 5.29289ZM19.7071 10.2929C20.0976 10.6834 20.0976 11.3166 19.7071 11.7071L11.7071 19.7071C11.3166 20.0976 10.6834 20.0976 10.2929 19.7071C9.90237 19.3166 9.90237 18.6834 10.2929 18.2929L18.2929 10.2929C18.6834 9.90237 19.3166 9.90237 19.7071 10.2929ZM19.7071 15.2929C20.0976 15.6834 20.0976 16.3166 19.7071 16.7071L16.7071 19.7071C16.3166 20.0976 15.6834 20.0976 15.2929 19.7071C14.9024 19.3166 14.9024 18.6834 15.2929 18.2929L18.2929 15.2929C18.6834 14.9024 19.3166 14.9024 19.7071 15.2929Z" fill="#B6B6B6" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="hidden lg:block h-8 w-auto">
+                            <div class="inline-flex">
+                                <svg width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.70711 0.292893C5.09763 0.683417 5.09763 1.31658 4.70711 1.70711L1.70711 4.70711C1.31658 5.09763 0.683417 5.09763 0.292893 4.70711C-0.0976311 4.31658 -0.0976311 3.68342 0.292893 3.29289L3.29289 0.292893C3.68342 -0.0976311 4.31658 -0.0976311 4.70711 0.292893ZM9.70711 0.292893C10.0976 0.683417 10.0976 1.31658 9.70711 1.70711L1.70711 9.70711C1.31658 10.0976 0.683417 10.0976 0.292893 9.70711C-0.0976311 9.31658 -0.0976311 8.68342 0.292893 8.29289L8.29289 0.292893C8.68342 -0.0976311 9.31658 -0.0976311 9.70711 0.292893ZM14.7071 0.292893C15.0976 0.683417 15.0976 1.31658 14.7071 1.70711L1.70711 14.7071C1.31658 15.0976 0.683417 15.0976 0.292893 14.7071C-0.0976311 14.3166 -0.0976311 13.6834 0.292893 13.2929L13.2929 0.292893C13.6834 -0.0976311 14.3166 -0.0976311 14.7071 0.292893ZM19.7071 0.292893C20.0976 0.683417 20.0976 1.31658 19.7071 1.70711L1.70711 19.7071C1.31658 20.0976 0.683417 20.0976 0.292893 19.7071C-0.0976311 19.3166 -0.0976311 18.6834 0.292893 18.2929L18.2929 0.292893C18.6834 -0.0976311 19.3166 -0.0976311 19.7071 0.292893ZM19.7071 5.29289C20.0976 5.68342 20.0976 6.31658 19.7071 6.70711L6.70711 19.7071C6.31658 20.0976 5.68342 20.0976 5.29289 19.7071C4.90237 19.3166 4.90237 18.6834 5.29289 18.2929L18.2929 5.29289C18.6834 4.90237 19.3166 4.90237 19.7071 5.29289ZM19.7071 10.2929C20.0976 10.6834 20.0976 11.3166 19.7071 11.7071L11.7071 19.7071C11.3166 20.0976 10.6834 20.0976 10.2929 19.7071C9.90237 19.3166 9.90237 18.6834 10.2929 18.2929L18.2929 10.2929C18.6834 9.90237 19.3166 9.90237 19.7071 10.2929ZM19.7071 15.2929C20.0976 15.6834 20.0976 16.3166 19.7071 16.7071L16.7071 19.7071C16.3166 20.0976 15.6834 20.0976 15.2929 19.7071C14.9024 19.3166 14.9024 18.6834 15.2929 18.2929L18.2929 15.2929C18.6834 14.9024 19.3166 14.9024 19.7071 15.2929Z" fill="#B6B6B6" />
+                                </svg>
+                                <span class="text-white p-1">
+                                    Blazor Dashboard
+                                </span>
+                            </div>
+                        </div>
+                    <div class="hidden sm:block sm:ml-6">
+                        <div class="flex space-x-4">
+                            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                            <NavLink class=" text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" href="/" Match="NavLinkMatch.All">
+                                Dashboard
+                            </NavLink>
+                            <NavLink class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" href="/admin" Match="NavLinkMatch.All">
+                                Admin
+                            </NavLink>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                    <button type="button" class="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                        <span class="sr-only">View notifications</span>
+                        <!-- Heroicon name: outline/bell -->
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                        </svg>
+                    </button>
+
+                    <!-- Profile dropdown -->
+                    <div class="ml-3 relative">
+                        <div>
+                            <button type="button" class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white outline-none"
+                                    id="user-menu-button" aria-expanded="false" aria-haspopup="true" @onclick="ToggleProfileMenu">
+                                <span class="sr-only">Open user menu</span>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.05836 7.35387C8.05836 5.19392 9.82642 3.43696 12 3.43696C14.1736 3.43696 15.9416 5.19392 15.9416 7.35387C15.9416 9.51281 14.1736 11.2698 12 11.2698C9.82642 11.2698 8.05836 9.51281 8.05836 7.35387ZM6.61233 7.35387C6.61233 10.3048 9.02943 12.7067 12 12.7067C14.9706 12.7067 17.3867 10.3048 17.3867 7.35387C17.3867 4.40194 14.9706 2 12 2C9.02943 2 6.61233 4.40194 6.61233 7.35387ZM10.9776 21.985C11.3127 21.995 11.6538 22 12 22C15.4345 22 20 21.619 20 18.3301C20 14.6392 13.9784 14.6392 12 14.6392C8.56553 14.6392 4 15.0202 4 18.3101C4 19.2951 4.46088 20.624 6.6566 21.363C7.03597 21.493 7.44453 21.288 7.57333 20.913C7.70113 20.538 7.49887 20.131 7.1205 20.004C5.61811 19.4981 5.44503 18.7951 5.44503 18.3101C5.44503 16.8271 7.65082 16.0751 12 16.0751C16.3492 16.0751 18.555 16.8341 18.555 18.3301C18.555 19.8121 16.3492 20.563 12 20.563C11.6679 20.563 11.3409 20.559 11.0189 20.55C10.6325 20.553 10.2883 20.851 10.2772 21.247C10.2652 21.644 10.5791 21.975 10.9776 21.985Z" fill="white" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!--
+                          Dropdown menu, show/hide based on menu state.
+
+                          Entering: "transition ease-out duration-100"
+                            From: "transform opacity-0 scale-95"
+                            To: "transform opacity-100 scale-100"
+                          Leaving: "transition ease-in duration-75"
+                            From: "transform opacity-100 scale-100"
+                            To: "transform opacity-0 scale-95"
+                        -->
+                        <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none @NavProfileCssClass"
+                             role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                            <!-- Active: "bg-gray-100", Not Active: "" -->
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="sm:hidden @NavMenuCloseCssClass" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                <NavLink class=" text-white px-3 hover:bg-gray-700 hover:text-white py-2 rounded-md text-sm font-medium" href="/" Match="NavLinkMatch.All">
+                    Dashboard
+                </NavLink>
+                <NavLink class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 block rounded-md text-sm font-medium" href="/admin" Match="NavLinkMatch.All">
+                    Admin
+                </NavLink>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private bool collapseProfile = false;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "block" : "hidden";
+
+    private string? NavMenuCloseCssClass => !collapseNavMenu ? "block" : "hidden";
+
+    private string? NavProfileCssClass => collapseProfile ? "transform opacity-100 scale-100" : "transform opacity-0 scale-95";
+
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    private void ToggleProfileMenu()
+    {
+        collapseProfile = !collapseProfile;
+    }
+
+
+}
