@@ -1,6 +1,5 @@
 const colors = require('tailwindcss/colors');
 const forms = require("@tailwindcss/forms")({
-    strategy: 'class',
 });
 
 module.exports = {
@@ -11,7 +10,7 @@ module.exports = {
             './**/*.razor'
         ],
     },
-    darkMode: false,
+    darkMode: true,
     theme: [
         colors
     ],

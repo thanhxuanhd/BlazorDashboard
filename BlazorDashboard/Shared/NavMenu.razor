@@ -39,11 +39,11 @@
                         </div>
                     </div>
                     <div class="hidden lg:block h-8 w-auto">
-                            <div class="inline-flex">
-                                <svg width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <div class="flex items-center">
+                                <svg width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-3">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M4.70711 0.292893C5.09763 0.683417 5.09763 1.31658 4.70711 1.70711L1.70711 4.70711C1.31658 5.09763 0.683417 5.09763 0.292893 4.70711C-0.0976311 4.31658 -0.0976311 3.68342 0.292893 3.29289L3.29289 0.292893C3.68342 -0.0976311 4.31658 -0.0976311 4.70711 0.292893ZM9.70711 0.292893C10.0976 0.683417 10.0976 1.31658 9.70711 1.70711L1.70711 9.70711C1.31658 10.0976 0.683417 10.0976 0.292893 9.70711C-0.0976311 9.31658 -0.0976311 8.68342 0.292893 8.29289L8.29289 0.292893C8.68342 -0.0976311 9.31658 -0.0976311 9.70711 0.292893ZM14.7071 0.292893C15.0976 0.683417 15.0976 1.31658 14.7071 1.70711L1.70711 14.7071C1.31658 15.0976 0.683417 15.0976 0.292893 14.7071C-0.0976311 14.3166 -0.0976311 13.6834 0.292893 13.2929L13.2929 0.292893C13.6834 -0.0976311 14.3166 -0.0976311 14.7071 0.292893ZM19.7071 0.292893C20.0976 0.683417 20.0976 1.31658 19.7071 1.70711L1.70711 19.7071C1.31658 20.0976 0.683417 20.0976 0.292893 19.7071C-0.0976311 19.3166 -0.0976311 18.6834 0.292893 18.2929L18.2929 0.292893C18.6834 -0.0976311 19.3166 -0.0976311 19.7071 0.292893ZM19.7071 5.29289C20.0976 5.68342 20.0976 6.31658 19.7071 6.70711L6.70711 19.7071C6.31658 20.0976 5.68342 20.0976 5.29289 19.7071C4.90237 19.3166 4.90237 18.6834 5.29289 18.2929L18.2929 5.29289C18.6834 4.90237 19.3166 4.90237 19.7071 5.29289ZM19.7071 10.2929C20.0976 10.6834 20.0976 11.3166 19.7071 11.7071L11.7071 19.7071C11.3166 20.0976 10.6834 20.0976 10.2929 19.7071C9.90237 19.3166 9.90237 18.6834 10.2929 18.2929L18.2929 10.2929C18.6834 9.90237 19.3166 9.90237 19.7071 10.2929ZM19.7071 15.2929C20.0976 15.6834 20.0976 16.3166 19.7071 16.7071L16.7071 19.7071C16.3166 20.0976 15.6834 20.0976 15.2929 19.7071C14.9024 19.3166 14.9024 18.6834 15.2929 18.2929L18.2929 15.2929C18.6834 14.9024 19.3166 14.9024 19.7071 15.2929Z" fill="#B6B6B6" />
                                 </svg>
-                                <span class="text-white p-1">
+                                <span class="text-white">
                                     Blazor Dashboard
                                 </span>
                             </div>
@@ -51,16 +51,16 @@
                     <div class="hidden sm:block sm:ml-6">
                         <div class="flex space-x-4">
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                            <NavLink class=" text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" href="/" Match="NavLinkMatch.All">
+                            <NavLink class=" text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" href="/" Match="NavLinkMatch.All" ActiveClass="navbar-active">
                                 Dashboard
                             </NavLink>
-                            <NavLink class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" href="/admin" Match="NavLinkMatch.All">
+                            <NavLink class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" href="/admin" Match="NavLinkMatch.All" ActiveClass="navbar-active">
                                 Admin
                             </NavLink>
                         </div>
                     </div>
                 </div>
-                <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 md:absolute md:inset-y-0 md:right-0">
                     <button type="button" class="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                         <span class="sr-only">View notifications</span>
                         <!-- Heroicon name: outline/bell -->
@@ -107,10 +107,10 @@
         <div class="sm:hidden @NavMenuCloseCssClass" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <NavLink class=" text-white px-3 hover:bg-gray-700 hover:text-white py-2 rounded-md text-sm font-medium" href="/" Match="NavLinkMatch.All">
+                <NavLink class=" text-white px-3 hover:bg-gray-700 hover:text-white py-2 rounded-md text-sm font-medium" href="/" Match="NavLinkMatch.All" ActiveClass="navbar-active">
                     Dashboard
                 </NavLink>
-                <NavLink class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 block rounded-md text-sm font-medium" href="/admin" Match="NavLinkMatch.All">
+                <NavLink class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 block rounded-md text-sm font-medium" href="/admin" Match="NavLinkMatch.All" ActiveClass="navbar-active">
                     Admin
                 </NavLink>
             </div>

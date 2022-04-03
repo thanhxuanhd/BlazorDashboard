@@ -1,0 +1,165 @@
+@layout MainLayoutSidebar
+@page "/users"
+
+<div class="p-2">
+    <div class="page-header flex w-full">
+        <div class="page-header-text w-2/3">
+            <span class="text-lg font-bold">Users Management</span>
+        </div>
+        <div class="page-header-action justify-end w-1/3 relative">
+            <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none
+                            focus:ring-blue-300 rounded-lg text-sm w-full sm:w-auto p-2 text-center float-right font-thin flex items-center">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6 0C6.41421 0 6.75 0.335786 6.75 0.75V11.25C6.75 11.6642 6.41421 12 6 12C5.58579 12 5.25 11.6642 5.25 11.25V0.75C5.25 0.335786 5.58579 0 6 0Z" fill="white" />
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 6C0 5.58579 0.335786 5.25 0.75 5.25H11.25C11.6642 5.25 12 5.58579 12 6C12 6.41421 11.6642 6.75 11.25 6.75H0.75C0.335786 6.75 0 6.41421 0 6Z" fill="white" />
+                </svg>
+                <span>Create User</span>
+            </button>
+        </div>
+    </div>
+    <div class="page-body flex mt-2">
+        <div class="overflow-x-auto inline-block min-w-full align-middle">
+            <table class="min-w-full divide-y md:table-fixed sm:table-auto border border-slate-400 rounded-lg">
+                <thead>
+                    <tr class="bg-gray-200 text-gray-700">
+                        <th class="border border-slate-300 px-4 py-2 md:w-40" scope="col">
+                            ID
+                        </th>
+                        <th class="border border-slate-300 px-4 py-2">
+                            Username / Email
+                        </th>
+                        <th class="border border-slate-300 px-4 py-2">
+                            Authorities
+                        </th>
+                        <th class="border border-slate-300 px-4 py-2">
+                            Created by
+                        </th>
+                        <th class="border border-slate-300 px-4 py-2">
+                            Modified by
+                        </th>
+                        <th class="border border-slate-300 px-4 py-2 md:w-40">
+                            Status
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Users)
+                    {
+                        <tr>
+                            <td class="border border-slate-300 items-center text-center md:w-40">
+                                <span class="bg-gray-200 p-2 w-20 text-sm text-gray-700 rounded-lg">@user.Id</span>
+                            </td>
+                            <td class="border border-slate-300 px-4 py-2">
+                                <div>
+                                    @user.Username
+                                </div>
+                                <div class="text-gray-500">@user.Email</div>
+                            </td>
+                            <td class="border border-slate-300 px-4 py-2">
+                                <span class="bg-gray-200 p-2 w-20 text-sm text-gray-700 rounded-lg">
+                                    @user.Authorities
+                                </span>
+                            </td>
+                            <td class="border border-slate-300 px-4 py-2">
+                                <div>
+                                    @user.CreatedBy
+                                </div>
+                                <div class="text-gray-500">
+                                    @user.CreatedDate.ToShortDateString()
+                                </div>
+                            </td>
+                            <td class="border border-slate-300 px-4 py-2">
+                                @user.ModifiedBy
+                            </td>
+                            <td class="border border-slate-300 px-4 py-2 md:w-40">
+                                @if (user.Status)
+                                {
+                                    <span class="bg-green-200 p-2 w-20 text-sm text-green-600 rounded-lg">
+                                        @GetStatus(user.Status)
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="bg-red-200 p-2 w-20 text-sm text-red-600 rounded-lg">
+                                        @GetStatus(user.Status)
+                                    </span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot class="p-2 border border-slate-400">
+                    <tr class="items-center">
+                        <td class="border border-slate-300 px-4 py-2 text-center">
+                            <button class="bg-gray-200 p-3 rounded-lg">
+                                <svg width="10" height="10" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.08817 0.670854C8.31598 0.443049 8.68532 0.443049 8.91313 0.670854C9.14094 0.89866 9.14094 1.26801 8.91313 1.49581L6.40894 4L8.91313 6.50419C9.14094 6.73199 9.14094 7.10134 8.91313 7.32915C8.68532 7.55695 8.31598 7.55695 8.08817 7.32915L5.1715 4.41248C4.9437 4.18467 4.9437 3.81533 5.1715 3.58752L8.08817 0.670854ZM4.00484 0.670854C4.23265 0.443049 4.60199 0.443049 4.8298 0.670854C5.0576 0.89866 5.0576 1.26801 4.8298 1.49581L2.32561 4L4.8298 6.50419C5.0576 6.73199 5.0576 7.10134 4.8298 7.32915C4.60199 7.55695 4.23265 7.55695 4.00484 7.32915L1.08817 4.41248C0.860367 4.18467 0.860367 3.81533 1.08817 3.58752L4.00484 0.670854Z" fill="#475569" />
+                                </svg>
+                            </button>
+                            <button class="bg-gray-200 p-3 rounded-lg">
+                                <svg width="10" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.16183 1.08785C5.38963 1.31565 5.38963 1.685 5.16183 1.9128L2.07431 5.00033L5.16183 8.08785C5.38963 8.31565 5.38963 8.685 5.16183 8.91281C4.93402 9.14061 4.56468 9.14061 4.33687 8.91281L0.83687 5.41281C0.609064 5.185 0.609064 4.81565 0.83687 4.58785L4.33687 1.08785C4.56468 0.860041 4.93402 0.860041 5.16183 1.08785Z" fill="#475569" />
+                                </svg>
+                            </button>
+                        </td>
+                        <td class="border border-slate-300 px-4 py-2 text-center" colspan="4">
+                            <span class="text-gray-500">
+                                Showing
+                            </span>
+                            <span>
+                                1
+                            </span>
+                            <span class="text-gray-500">
+                                to
+                            </span>
+                            <span>
+                                20
+                            </span>
+                            <span class="text-gray-500">
+                                of
+                            </span>
+                            <span>
+                                42
+                            </span>
+                            <span class="text-gray-500">
+                                results
+                            </span>
+                        </td>
+                        <td class="border border-slate-300 px-4 py-2 text-center">
+                            <button class="bg-gray-200 p-3 rounded-lg">
+                                <svg width="10" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.83687 1.08785C1.06468 0.860041 1.43402 0.860041 1.66183 1.08785L5.16183 4.58785C5.38963 4.81565 5.38963 5.185 5.16183 5.41281L1.66183 8.91281C1.43402 9.14061 1.06468 9.14061 0.83687 8.91281C0.609064 8.685 0.609064 8.31565 0.83687 8.08785L3.92439 5.00033L0.83687 1.9128C0.609064 1.685 0.609064 1.31565 0.83687 1.08785Z" fill="#475569" />
+                                </svg>
+                            </button>
+                            <button class="bg-gray-200 p-3 rounded-lg">
+                                <svg width="10" height="10" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M1.91183 0.670854C1.68402 0.443049 1.31468 0.443049 1.08687 0.670854C0.859064 0.89866 0.859064 1.26801 1.08687 1.49581L3.59106 4L1.08687 6.50419C0.859064 6.73199 0.859064 7.10134 1.08687 7.32915C1.31468 7.55695 1.68402 7.55695 1.91183 7.32915L4.82849 4.41248C5.0563 4.18467 5.0563 3.81533 4.82849 3.58752L1.91183 0.670854ZM5.99516 0.670854C5.76736 0.443049 5.39801 0.443049 5.1702 0.670854C4.9424 0.89866 4.9424 1.26801 5.1702 1.49581L7.67439 4L5.1702 6.50419C4.9424 6.73199 4.9424 7.10134 5.1702 7.32915C5.39801 7.55695 5.76736 7.55695 5.99516 7.32915L8.91183 4.41248C9.13963 4.18467 9.13963 3.81533 8.91183 3.58752L5.99516 0.670854Z" fill="#475569" />
+                                </svg>
+                            </button>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Inject]
+    IDataService dataService { get; set; }
+
+    public List<User> Users { get; set; }
+
+    public int PageSize { get; set; } = 20;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        Users = dataService.GetUsers().Take(PageSize).ToList();
+    }
+
+    private string GetStatus(bool status)
+    {
+        return status ? "ACTIVATED" : "NOT ACTIVATED";
+    }
+}

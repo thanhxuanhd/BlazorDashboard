@@ -8,8 +8,14 @@ h1:focus {
     outline: none;
 }
 
-a, .btn-link {
-    color: #0071c1;
+.navbar-active {
+    --tw-bg-opacity: 1;
+    background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}
+
+.sidebar-active {
+    --tw-bg-opacity: 1;
+    background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 
 .btn-primary {

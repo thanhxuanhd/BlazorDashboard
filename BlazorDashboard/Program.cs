@@ -1,8 +1,12 @@
+using BlazorDashboard.Interfaces;
+using BlazorDashboard.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+builder.Services.AddScoped<IDataService, DataService>();
 
 var app = builder.Build();
 

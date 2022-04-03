@@ -8,4 +8,10 @@
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
         <Exec Command="npm run buildcss" />
     </Target>
+    <ItemGroup>
+      <None Include="..\.editorconfig" Link=".editorconfig" />
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    </ItemGroup>
 </Project>
