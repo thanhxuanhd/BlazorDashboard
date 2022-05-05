@@ -1,0 +1,100 @@
+﻿@layout MainLayoutSidebar
+@page "/admin/create-user"
+
+<PageTitle>Create User</PageTitle>
+
+<div class="sm:h-screen md:h-screen lg:h-screen xl:h-screen h-screen">
+    <div class="flex">
+        <div class="sm:w-full md:w-3/5 lg:w-2/5 xl:w-2/5 m-auto">
+            <div class="h-auto bg-white rounded-lg shadow-md flex">
+                <form class="p-4 w-full">
+                    <div class="form-title font-bold text-lg">
+                        Create new user
+                    </div>
+                    <div class="mb-2">
+                        <label for="username" class="block mb-2 text-sm font-semibold text-gray-900">
+                            Username
+                            <span class="text-red-500">*</span>
+                        </label>
+                        <input type="text" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
+                               focus:border-blue-500 block w-full p-2.5 outline-none">
+                    </div>
+                    <div class="mb-2 grid gap-6 lg:grid-cols-2">
+                        <div>
+                            <label for="firstname" class="block mb-2 text-sm font-semibold text-gray-900">
+                                First Name
+                                <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" id="firstname" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                        focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none">
+                        </div>
+                        <div>
+                            <label for="lastname" class="block mb-2 text-sm font-semibold text-gray-900">
+                                Last Name
+                                <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" id="lastname" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                        focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none">
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label for="email" class="block mb-2 text-sm font-semibold text-gray-900">
+                            Email
+                            <span class="text-red-500">*</span>
+                        </label>
+                        <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
+                               focus:border-blue-500 block w-full p-2.5 outline-none">
+                    </div>
+                    <div class="mb-2">
+                        <label for="email" class="block mb-2 text-sm font-semibold text-gray-900">Language</label>
+                        <select name="language" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
+                               focus:border-blue-500 block w-full p-2.5 outline-none">
+                            <option value="">
+                                Please select
+                            </option>
+                            <option value="EN">
+                                English
+                            </option>
+                        </select>
+                    </div>
+                    <div class="mb-2">
+                        <label for="email" class="block mb-2 text-sm font-semibold text-gray-900">
+                            Authorities
+                            <span class="text-red-500">*</span>
+                        </label>
+                        <div class="flex">
+                            <div class="flex items-center mr-4">
+                                <input id="inline-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                <label for="inline-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">ROLE_ADMIN</label>
+                            </div>
+                            <div class="flex items-center mr-4">
+                                <input id="inline-2-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 focus:ring-2">
+                                <label for="inline-2-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">ROLE_USER</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <div class="grid gap-6 lg:grid-cols-2">
+                            <div class="content-start">
+                                <button class="bg-gray-200 hover:bg-gray-200 focus:ring-4 focus:outline-none
+                            focus:ring-blue-300 rounded-lg text-sm w-full sm:w-auto p-2 text-center flex items-center">
+                                    Cancel
+                                </button>
+                            </div>
+                            <div class="content-end">
+                                <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none
+                            focus:ring-blue-300 rounded-lg text-sm w-full float-right sm:w-auto p-2 text-center font-thin flex items-center">
+                                    Create User
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+}

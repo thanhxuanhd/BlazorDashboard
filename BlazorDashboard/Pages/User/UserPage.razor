@@ -1,5 +1,8 @@
 @layout MainLayoutSidebar
 @page "/admin/users"
+@inject NavigationManager NavigationManager;
+
+<PageTitle>Users</PageTitle>
 
 <div class="p-2">
     <div class="page-header flex w-full">
@@ -8,7 +11,7 @@
         </div>
         <div class="page-header-action justify-end w-1/3 relative">
             <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none
-                            focus:ring-blue-300 rounded-lg text-sm w-full sm:w-auto p-2 text-center float-right font-thin flex items-center">
+                            focus:ring-blue-300 rounded-lg text-sm w-full sm:w-auto p-2 text-center float-right font-thin flex items-center" @onclick="CreateUser">
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M6 0C6.41421 0 6.75 0.335786 6.75 0.75V11.25C6.75 11.6642 6.41421 12 6 12C5.58579 12 5.25 11.6642 5.25 11.25V0.75C5.25 0.335786 5.58579 0 6 0Z" fill="white" />
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M0 6C0 5.58579 0.335786 5.25 0.75 5.25H11.25C11.6642 5.25 12 5.58579 12 6C12 6.41421 11.6642 6.75 11.25 6.75H0.75C0.335786 6.75 0 6.41421 0 6Z" fill="white" />
@@ -17,27 +20,27 @@
             </button>
         </div>
     </div>
-    <div class="page-body flex mt-2">
-        <div class="overflow-x-auto inline-block min-w-full align-middle rounded-lg border">
+    <div class="page-body flex mt-2 shadow">
+        <div class="overflow-x-auto inline-block min-w-full align-middle rounded-lg">
             <table class="min-w-full divide-y md:table-fixed sm:table-auto">
-                <thead>
+                <thead class="border">
                     <tr class="bg-gray-200 text-gray-700">
-                        <th class="border px-4 py-2 md:w-40" scope="col">
+                        <th class="px-4 py-2 md:w-40" scope="col">
                             ID
                         </th>
-                        <th class="border px-4 py-2">
+                        <th class="px-4 py-2">
                             Username / Email
                         </th>
-                        <th class="border px-4 py-2">
+                        <th class="px-4 py-2">
                             Authorities
                         </th>
-                        <th class="border px-4 py-2">
+                        <th class="px-4 py-2">
                             Created by
                         </th>
-                        <th class="border px-4 py-2">
+                        <th class="px-4 py-2">
                             Modified by
                         </th>
-                        <th class="border px-4 py-2 md:w-40">
+                        <th class="px-4 py-2 md:w-40">
                             Status
                         </th>
                     </tr>
@@ -45,22 +48,22 @@
                 <tbody>
                     @foreach (var user in UsersDisplay)
                     {
-                        <tr>
-                            <td class="border items-center text-center md:w-40">
+                        <tr class="border">
+                            <td class="items-center text-center md:w-40">
                                 <span class="bg-gray-200 p-2 w-20 text-sm text-gray-700 rounded-lg">@user.Id</span>
                             </td>
-                            <td class="border px-4 py-2">
+                            <td class="px-4 py-2">
                                 <div>
                                     @user.Username
                                 </div>
                                 <div class="text-gray-500">@user.Email</div>
                             </td>
-                            <td class="border px-4 py-2">
+                            <td class="px-4 py-2">
                                 <span class="bg-gray-200 p-2 w-20 text-sm text-gray-700 rounded-lg">
                                     @user.Authorities
                                 </span>
                             </td>
-                            <td class="border px-4 py-2">
+                            <td class="px-4 py-2">
                                 <div>
                                     @user.CreatedBy
                                 </div>
@@ -68,10 +71,10 @@
                                     @user.CreatedDate.ToShortDateString()
                                 </div>
                             </td>
-                            <td class="border px-4 py-2">
+                            <td class="px-4 py-2">
                                 @user.ModifiedBy
                             </td>
-                            <td class="border px-4 py-2 md:w-40">
+                            <td class="px-4 py-2 md:w-40">
                                 @if (user.Status)
                                 {
                                     <span class="bg-green-200 p-2 w-20 text-sm text-green-600 rounded-lg">
@@ -159,5 +162,10 @@
     private string GetStatus(bool status)
     {
         return status ? "ACTIVATED" : "NOT ACTIVATED";
+    }
+
+    private void CreateUser()
+    {
+        NavigationManager.NavigateTo("/admin/create-user");
     }
 }
