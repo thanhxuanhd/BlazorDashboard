@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="page-body flex mt-2 shadow">
-        <div class="overflow-x-auto inline-block min-w-full align-middle rounded-lg">
+        <div class="overflow-x-auto inline-block min-w-full align-middle">
             <table class="min-w-full divide-y md:table-fixed sm:table-auto">
                 <thead class="border">
                     <tr class="bg-gray-200 text-gray-700">
@@ -54,9 +54,9 @@
                         <UserItem Model="user" />
                     }
                 </tbody>
-                <UserFooter PageIndex="@PageIndex" TotalPages=TotalPages OnClick="PageIndexChanged"
+                <UserTableFooter PageIndex="@PageIndex" TotalPages=TotalPages OnClick="PageIndexChanged"
                        HasNextPage="@HasNextPage" HasPreviousPage="@HasPreviousPage" TotalRecords="@TotalRecords" PageSize="@PageSize">
-                </UserFooter>
+                </UserTableFooter>
             </table>
         </div>
     </div>

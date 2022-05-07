@@ -4,10 +4,10 @@
 
 <PageTitle>Create User</PageTitle>
 
-<div class="sm:h-screen md:h-screen lg:h-screen xl:h-screen h-screen">
+<div class="">
     <div class="flex">
         <div class="sm:w-full md:w-3/5 lg:w-2/5 xl:w-2/5 m-auto">
-            <div class="h-auto bg-white rounded-lg shadow-md flex">
+            <div class="h-auto bg-white rounded-lg shadow-lg flex">
                 <EditForm OnValidSubmit="@onSaveClick" Model="User" class="p-4 w-full">
                     <DataAnnotationsValidator />
                     <div class="form-title font-bold text-lg">
@@ -74,7 +74,7 @@
                             {
                                 <div class="flex items-center mr-4">
                                     <InputCheckbox  @bind-Value="role.IsChecked" id="@role.RoleId" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 focus:ring-2"/>
-                                    <label for="inline-2-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">@role.RoleName</label>
+                                    <label for="inline-2-checkbox" class="ml-2 text-sm text-gray-900 dark:text-gray-300 font-bold">@role.RoleName</label>
                                 </div>
                             }
 
@@ -86,13 +86,13 @@
                                 <button class="bg-gray-200 hover:bg-gray-200 focus:ring-4 focus:outline-none 
                                     focus:ring-blue-300 rounded-lg text-sm w-full sm:w-auto p-2 text-center flex items-center" 
                                 type="button" @onclick="onCanelClick">
-                                    Cancel
+                                    <span class="text-sm">Cancel</span>
                                 </button>
                             </div>
                             <div class="content-end">
                                 <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none 
                                     focus:ring-blue-300 rounded-lg text-sm w-full float-right sm:w-auto p-2 text-center font-thin flex items-center" type="submit">
-                                    Create User
+                                    <span class="text-sm">Create User</span>
                                 </button>
                             </div>
                         </div>
