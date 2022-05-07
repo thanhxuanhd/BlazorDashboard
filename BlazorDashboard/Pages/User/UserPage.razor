@@ -1,6 +1,6 @@
 @layout MainLayoutSidebar
 @page "/admin/users"
-@inject NavigationManager NavigationManager;
+@inject NavigationManager NavigationManager
 
 <PageTitle>Users</PageTitle>
 
@@ -43,57 +43,20 @@
                         <th class="px-4 py-2 md:w-40">
                             Status
                         </th>
+                        <th class="px-4 py-2 md:w-40">
+                            Action
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var user in UsersDisplay)
                     {
-                        <tr class="border">
-                            <td class="items-center text-center md:w-40">
-                                <span class="bg-gray-200 p-2 w-20 text-sm text-gray-700 rounded-lg">@user.Id</span>
-                            </td>
-                            <td class="px-4 py-2">
-                                <div>
-                                    @user.Username
-                                </div>
-                                <div class="text-gray-500">@user.Email</div>
-                            </td>
-                            <td class="px-4 py-2">
-                                <span class="bg-gray-200 p-2 w-20 text-sm text-gray-700 rounded-lg">
-                                    @user.Authorities
-                                </span>
-                            </td>
-                            <td class="px-4 py-2">
-                                <div>
-                                    @user.CreatedBy
-                                </div>
-                                <div class="text-gray-500">
-                                    @user.CreatedDate.ToShortDateString()
-                                </div>
-                            </td>
-                            <td class="px-4 py-2">
-                                @user.ModifiedBy
-                            </td>
-                            <td class="px-4 py-2 md:w-40">
-                                @if (user.Status)
-                                {
-                                    <span class="bg-green-200 p-2 w-20 text-sm text-green-600 rounded-lg">
-                                        @GetStatus(user.Status)
-                                    </span>
-                                }
-                                else
-                                {
-                                    <span class="bg-red-200 p-2 w-20 text-sm text-red-600 rounded-lg">
-                                        @GetStatus(user.Status)
-                                    </span>
-                                }
-                            </td>
-                        </tr>
+                        <UserItem Model="user" />
                     }
                 </tbody>
-                <Pager PageIndex="@PageIndex" TotalPages=TotalPages OnClick="PageIndexChanged"
+                <UserFooter PageIndex="@PageIndex" TotalPages=TotalPages OnClick="PageIndexChanged"
                        HasNextPage="@HasNextPage" HasPreviousPage="@HasPreviousPage" TotalRecords="@TotalRecords" PageSize="@PageSize">
-                </Pager>
+                </UserFooter>
             </table>
         </div>
     </div>
@@ -157,11 +120,6 @@
     public void UserPaging()
     {
         UsersDisplay = Users.Skip((PageIndex - 1) * PageSize).Take(PageSize).ToList();
-    }
-
-    private string GetStatus(bool status)
-    {
-        return status ? "ACTIVATED" : "NOT ACTIVATED";
     }
 
     private void CreateUser()
